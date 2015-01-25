@@ -1,0 +1,2221 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-25 02:55:27 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/railties-4.2.0.beta4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 15ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePosts (20150125015606)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20150125015606)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150125015606"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/posts" for ::1 at 2015-01-25 03:02:38 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 1697ms (Views: 1686.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for ::1 at 2015-01-25 03:02:40 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for ::1 at 2015-01-25 03:02:40 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for ::1 at 2015-01-25 03:02:40 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for ::1 at 2015-01-25 03:02:40 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for ::1 at 2015-01-25 03:02:40 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for ::1 at 2015-01-25 03:02:40 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for ::1 at 2015-01-25 03:02:40 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for ::1 at 2015-01-25 03:02:40 +0100
+
+
+Started GET "/posts/new" for ::1 at 2015-01-25 03:02:46 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (63.6ms)
+  Rendered posts/new.html.erb within layouts/application (97.3ms)
+Completed 200 OK in 144ms (Views: 138.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts" for ::1 at 2015-01-25 03:03:35 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nG3ZVhoHs3exE2e6kTZbl079KsDz5MFZ0kE38oo665wb71Pf6vcH5aAvpMOHxyGGJXZ4NlNNWkaggLH4BUCt9A==", "post"=>{"title"=>"MIGHT", "body"=>"This is becoming a  rails app. Really cool, ain't it. Thank you Jesus"}, "commit"=>"Create Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)  [["body", "This is becoming a  rails app. Really cool, ain't it. Thank you Jesus"], ["created_at", "2015-01-25 02:03:35.947733"], ["title", "MIGHT"], ["updated_at", "2015-01-25 02:03:35.947733"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/1" for ::1 at 2015-01-25 03:03:35 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 80ms (Views: 43.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-01-25 03:03:47 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/railties-4.2.0.beta4/lib/rails/templates/rails/welcome/index.html.erb (0.9ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2015-01-25 03:07:11 +0100
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `attr_accessible' for #<Class:0x007f9ff1d1a590>):
+  app/models/post.rb:2:in `<class:Post>'
+  app/models/post.rb:1:in `<top (required)>'
+  app/controllers/posts_controller.rb:17:in `new'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.1ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (28.8ms)
+
+
+Started GET "/posts/new" for ::1 at 2015-01-25 03:07:24 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.8ms)
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 58ms (Views: 53.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for ::1 at 2015-01-25 03:07:24 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for ::1 at 2015-01-25 03:07:24 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for ::1 at 2015-01-25 03:07:24 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for ::1 at 2015-01-25 03:07:24 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for ::1 at 2015-01-25 03:07:24 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for ::1 at 2015-01-25 03:07:24 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for ::1 at 2015-01-25 03:07:24 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for ::1 at 2015-01-25 03:07:24 +0100
+
+
+Started POST "/posts" for ::1 at 2015-01-25 03:07:31 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZOZBGw7Tc+zTAaxAtrSaS8J/XBIjgdEYP9LtrvUW0DbjZMuS/iPHfsI9bzmgReBaqfQO5IMoSgdNE2ukemyWXg==", "post"=>{"title"=>"", "body"=>"Hello"}, "commit"=>"Create Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered posts/_form.html.erb (1.6ms)
+  Rendered posts/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for ::1 at 2015-01-25 03:07:31 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for ::1 at 2015-01-25 03:07:31 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for ::1 at 2015-01-25 03:07:31 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for ::1 at 2015-01-25 03:07:31 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for ::1 at 2015-01-25 03:07:31 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for ::1 at 2015-01-25 03:07:31 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for ::1 at 2015-01-25 03:07:31 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for ::1 at 2015-01-25 03:07:31 +0100
+
+
+Started POST "/posts" for ::1 at 2015-01-25 03:08:26 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mzYOGk3aak3CXHDo4GRLNUMffY7+nhhAKH1TzAhh2xkctISTvSre39Ngs5H2lTEkKJQveF43g19avNXGhxudcQ==", "post"=>{"title"=>"Acorn 4", "body"=>"Flying Meat just released a major new version of Acorn, with a refreshed UI, speed improvements, non-destructive layer filters, and more."}, "commit"=>"Create Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)  [["body", "Flying Meat just released a major new version of Acorn, with a refreshed UI, speed improvements, non-destructive layer filters, and more."], ["created_at", "2015-01-25 02:08:26.380241"], ["title", "Acorn 4"], ["updated_at", "2015-01-25 02:08:26.380241"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/2" for ::1 at 2015-01-25 03:08:26 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 60ms (Views: 55.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for ::1 at 2015-01-25 03:08:26 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for ::1 at 2015-01-25 03:08:26 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for ::1 at 2015-01-25 03:08:26 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for ::1 at 2015-01-25 03:08:26 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for ::1 at 2015-01-25 03:08:26 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for ::1 at 2015-01-25 03:08:26 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for ::1 at 2015-01-25 03:08:26 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for ::1 at 2015-01-25 03:08:26 +0100
+
+
+Started GET "/posts" for ::1 at 2015-01-25 03:08:30 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 48ms (Views: 47.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for ::1 at 2015-01-25 03:08:30 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for ::1 at 2015-01-25 03:08:30 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for ::1 at 2015-01-25 03:08:30 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for ::1 at 2015-01-25 03:08:30 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for ::1 at 2015-01-25 03:08:30 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for ::1 at 2015-01-25 03:08:30 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for ::1 at 2015-01-25 03:08:30 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for ::1 at 2015-01-25 03:08:30 +0100
+
+
+Started GET "/posts" for ::1 at 2015-01-25 03:20:05 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 60ms (Views: 59.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for ::1 at 2015-01-25 03:20:05 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for ::1 at 2015-01-25 03:20:05 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for ::1 at 2015-01-25 03:20:05 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for ::1 at 2015-01-25 03:20:05 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for ::1 at 2015-01-25 03:20:05 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for ::1 at 2015-01-25 03:20:05 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for ::1 at 2015-01-25 03:20:05 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for ::1 at 2015-01-25 03:20:05 +0100
+
+
+Started GET "/posts" for ::1 at 2015-01-25 03:20:07 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 56ms (Views: 54.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for ::1 at 2015-01-25 03:20:07 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for ::1 at 2015-01-25 03:20:07 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for ::1 at 2015-01-25 03:20:07 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for ::1 at 2015-01-25 03:20:07 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for ::1 at 2015-01-25 03:20:07 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for ::1 at 2015-01-25 03:20:07 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for ::1 at 2015-01-25 03:20:07 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for ::1 at 2015-01-25 03:20:07 +0100
+
+
+Started GET "/posts" for ::1 at 2015-01-25 03:20:09 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 53ms (Views: 51.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for ::1 at 2015-01-25 03:20:10 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for ::1 at 2015-01-25 03:20:10 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for ::1 at 2015-01-25 03:20:10 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for ::1 at 2015-01-25 03:20:10 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for ::1 at 2015-01-25 03:20:10 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for ::1 at 2015-01-25 03:20:10 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for ::1 at 2015-01-25 03:20:10 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for ::1 at 2015-01-25 03:20:10 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-25 03:21:07 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/railties-4.2.0.beta4/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-25 03:21:17 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/railties-4.2.0.beta4/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:21:47 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 58ms (Views: 57.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:21:47 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:21:47 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:21:47 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:21:47 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:21:47 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:21:47 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 52ms (Views: 51.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:18 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:22:19 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 49ms (Views: 48.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:20 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:20 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:20 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:20 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:20 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:20 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:20 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:20 +0100
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.3ms)
+  Rendered posts/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 50ms (Views: 49.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:22:29 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 56ms (Views: 55.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:04 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 54ms (Views: 53.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:05 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 52ms (Views: 51.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:14 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:25:43 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 51ms (Views: 50.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:26:44 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 52ms (Views: 51.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:27:36 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:28:16 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (49.7ms)
+  Rendered posts/index.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 114ms (Views: 113.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:28:16 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:16 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:28:16 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:28:16 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:16 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:16 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:17 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:17 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.3ms)
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 53ms (Views: 52.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:28:42 +0100
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2015-01-25 03:28:46 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/_post.html.erb (0.9ms)
+  Rendered posts/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 52ms (Views: 50.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:29:08 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:30:42 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (1.6ms)
+  Rendered posts/index.html.erb within layouts/application (19.5ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x007f9ff1d12638>:0x007f9ff1b8e4b0>):
+     5:  <%= render :partial => @posts %>
+     6: 
+     7:  <%= link_to 'New Post', new_post_path %>
+     8:  <div><%= link_to 'Show', post %></div>
+     9:  <div><%= link_to 'Edit', edit_post_path(post) %></div>
+    10:  <div><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    11: 
+  app/views/posts/index.html.erb:8:in `_app_views_posts_index_html_erb__3104838604092796449_70162465973060'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (26.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.2ms)
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 47ms (Views: 45.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:30:56 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:31:30 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (1.3ms)
+  Rendered posts/index.html.erb within layouts/application (16.8ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x007f9ff1d12638>:0x007f9ff189b460>):
+     5:  <%= render :partial => @posts %>
+     6: 
+     7:  <%= link_to 'New Post', new_post_path %>
+     8:  <%= link_to 'Show', post %>
+     9:  <%= link_to 'Edit', edit_post_path(post) %>
+    10:  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    11: 
+  app/views/posts/index.html.erb:8:in `_app_views_posts_index_html_erb__3104838604092796449_70162464407860'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:31:42 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.2ms)
+  Rendered posts/index.html.erb within layouts/application (16.1ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x007f9ff1d12638>:0x007f9ff2fd08b0>):
+     5:  <%= render :partial => @posts %>
+     6: 
+     7:  <%= link_to 'New Post', new_post_path %>
+     8:  <%= link_to 'Edit', edit_post_path(post) %>
+     9:  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    10: 
+    11: <br>
+  app/views/posts/index.html.erb:8:in `_app_views_posts_index_html_erb__3104838604092796449_70162476586360'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:31:52 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (1.2ms)
+  Rendered posts/index.html.erb within layouts/application (16.7ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x007f9ff1d12638>:0x007f9ff29d28f0>):
+     5:  <%= render :partial => @posts %>
+     6: 
+     7:  <%= link_to 'New Post', new_post_path %>
+     8:  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+     9: 
+    10: <br>
+    11: 
+  app/views/posts/index.html.erb:8:in `_app_views_posts_index_html_erb__3104838604092796449_70162473451840'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.2ms)
+  Rendered posts/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 53ms (Views: 51.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:31:57 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (1.3ms)
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 53ms (Views: 52.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:03 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.4ms)
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 61ms (Views: 60.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:27 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (1.2ms)
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 55ms (Views: 54.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:32:34 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:33:57 +0100
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    2: 
+    3: <h1>Listing posts</h1>
+    4: 
+    5:  <%= render :partial => @posts %>
+    6: 
+    7:  <%= link_to 'New Post', new_post_path %>
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb__3104838604092796449_70162446299460'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.7ms)
+  Rendered posts/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 58ms (Views: 55.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:34:23 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:35:30 +0100
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    2: 
+    3: <h1>Listing posts</h1>
+    4: 
+    5:  <%= render :partial => @posts %>
+    6: 
+    7:  <%= link_to 'New Post', new_post_path %>
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb__3104838604092796449_70162446299460'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (24.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (1.4ms)
+  Rendered posts/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 60ms (Views: 57.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:36:43 +0100
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-01-25 03:36:49 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.4ms)
+  Rendered posts/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 65ms (Views: 64.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:36:49 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:36:49 +0100
+
+
+Started POST "/posts" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I4G7+rEcK1EJ14F/uefIaZfB5fXYjbGT3i627Z5Zdgt0b09QSkDvMGl8gadmySskXQWAy7kBn4Bv7gf/vayGpA==", "post"=>{"title"=>"I MADE AN IPHONE GAME Say Hello to SpellRush", "body"=>"About a year ago I started studying Obj-C every morning before heading off to work. Last week I finally launched SpellRush, my first iOS app. It's available for free on the App Store, so I urge you to try it out.\r\nI'll write a proper post soon about how it all came together (leaving Spotify, learning Obj-C, etc.). Right now though, I'm busy fixing bugs and adding more polish. Stay tuned."}, "commit"=>"Create Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)  [["body", "About a year ago I started studying Obj-C every morning before heading off to work. Last week I finally launched SpellRush, my first iOS app. It's available for free on the App Store, so I urge you to try it out.\r\nI'll write a proper post soon about how it all came together (leaving Spotify, learning Obj-C, etc.). Right now though, I'm busy fixing bugs and adding more polish. Stay tuned."], ["created_at", "2015-01-25 02:37:50.482004"], ["title", "I MADE AN IPHONE GAME Say Hello to SpellRush"], ["updated_at", "2015-01-25 02:37:50.482004"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/posts/3
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/_post.html.erb (0.9ms)
+  Rendered posts/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 54ms (Views: 50.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:50 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.7ms)
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (2.4ms)
+  Rendered posts/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 87ms (Views: 85.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/assets/application-b5842a940d155e8a1408087a8982c718.js?body=1" for 127.0.0.1 at 2015-01-25 03:37:58 +0100
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-01-25 03:38:03 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (2.2ms)
+  Rendered posts/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 52ms (Views: 51.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:38:11 +0100
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    2: 
+    3: <h1>Listing posts</h1>
+    4: 
+    5:  <%= render :partial => @posts %>
+    6: 
+    7:  <%= link_to 'New Post', new_post_path %>
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb__3104838604092796449_70162446299460'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-01-25 03:39:46 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@post) do |f| %>
+    2:   <% if @post.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  app/views/posts/_form.html.erb:1:in `_app_views_posts__form_html_erb___2347845356596208065_70162465862100'
+  app/views/posts/new.html.erb:3:in `_app_views_posts_new_html_erb__356148525732495784_70162465730780'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2015-01-25 03:39:50 +0100
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (1.8ms)
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@post) do |f| %>
+    2:   <% if @post.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  app/views/posts/_form.html.erb:1:in `_app_views_posts__form_html_erb___2347845356596208065_70162465862100'
+  app/views/posts/new.html.erb:3:in `_app_views_posts_new_html_erb__356148525732495784_70162465730780'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (11.5ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.5ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (37.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:39:51 +0100
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    2: 
+    3: <h1>Listing posts</h1>
+    4: 
+    5:  <%= render :partial => @posts %>
+    6: 
+    7:  <%= link_to 'New Post', new_post_path %>
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb__3104838604092796449_70162446299460'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-25 03:39:51 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/railties-4.2.0.beta4/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/company_profile" for 127.0.0.1 at 2015-01-25 03:39:52 +0100
+
+ActionController::RoutingError (No route matches [GET] "/admin/company_profile"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0.beta4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0.beta4) lib/rails/engine.rb:514:in `call'
+  railties (4.2.0.beta4) lib/rails/application.rb:161:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (19.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (46.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-01-25 03:39:54 +0100
+
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0.beta4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0.beta4) lib/rails/engine.rb:514:in `call'
+  railties (4.2.0.beta4) lib/rails/application.rb:161:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (22.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-01-25 03:40:03 +0100
+
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0.beta4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0.beta4) lib/rails/engine.rb:514:in `call'
+  railties (4.2.0.beta4) lib/rails/application.rb:161:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (21.8ms)
+
+
+Started GET "/admin/company_profile" for 127.0.0.1 at 2015-01-25 03:40:05 +0100
+
+ActionController::RoutingError (No route matches [GET] "/admin/company_profile"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0.beta4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0.beta4) lib/rails/engine.rb:514:in `call'
+  railties (4.2.0.beta4) lib/rails/application.rb:161:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (21.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-25 03:40:06 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/railties-4.2.0.beta4/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:40:07 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (2.3ms)
+  Rendered posts/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 62ms (Views: 58.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:40:07 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:40:07 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:40:10 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (1.7ms)
+  Rendered posts/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 60ms (Views: 59.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:40:10 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:40:10 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-25 03:40:10 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/railties-4.2.0.beta4/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/company_profile" for 127.0.0.1 at 2015-01-25 03:40:11 +0100
+
+ActionController::RoutingError (No route matches [GET] "/admin/company_profile"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0.beta4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0.beta4) lib/rails/engine.rb:514:in `call'
+  railties (4.2.0.beta4) lib/rails/application.rb:161:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (23.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-01-25 03:40:12 +0100
+
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0.beta4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0.beta4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0.beta4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0.beta4) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0.beta4) lib/rails/engine.rb:514:in `call'
+  railties (4.2.0.beta4) lib/rails/application.rb:161:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kehindeayanleye/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (26.0ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:40:18 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:40:18 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20150125024107)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150125024107"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+[0m
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:41:56 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (2.4ms)
+  Rendered posts/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 285ms (Views: 274.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:41:57 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:42:23 +0100
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `attr_accessible' for #<Class:0x007fd680920fa0>):
+  app/models/post.rb:3:in `<class:Post>'
+  app/models/post.rb:2:in `<top (required)>'
+  app/controllers/posts_controller.rb:7:in `index'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.3ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (33.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (2.6ms)
+  Rendered posts/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 83ms (Views: 65.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:42:30 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:45:02 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (2.7ms)
+  Rendered posts/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 84ms (Views: 79.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:45:03 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (2.2ms)
+  Rendered posts/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 70ms (Views: 65.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:46:08 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (2.1ms)
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 76ms (Views: 75.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:01 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:47:43 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.5ms)
+  Rendered posts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 66ms (Views: 64.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:47:44 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (1.9ms)
+  Rendered posts/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 60ms (Views: 58.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:15 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:48:36 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (2.7ms)
+  Rendered posts/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 118ms (Views: 104.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:48:36 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:48:36 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:48:37 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:37 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:37 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:37 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:48:37 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:37 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:37 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:48:37 +0100
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2015-01-25 03:48:40 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/_post.html.erb (0.8ms)
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered posts/show.html.erb within layouts/application (89.9ms)
+Completed 200 OK in 146ms (Views: 137.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (1.6ms)
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 59ms (Views: 58.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:21 +0100
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2015-01-25 03:49:22 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/_post.html.erb (0.6ms)
+  Rendered posts/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (3.4ms)
+  Rendered posts/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 66ms (Views: 64.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:34 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:49:36 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (5.1ms)
+  Rendered posts/index.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `comments' for nil:NilClass):
+    2:  <%= simple_format post.body %>
+    3:   <h2>Comments</h2>
+    4:  <div id="comments">
+    5:          <%= render :partial => @post.comments %>
+    6:  </div>
+    7: 
+    8:  <%= form_for [@post, Comment.new] do |f| %>
+  app/views/posts/_post.html.erb:5:in `_app_views_posts__post_html_erb___3845282800818222174_70202515724600'
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb__1844821451707165172_70202476101020'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:49:36 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (2.9ms)
+  Rendered posts/index.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `comments' for nil:NilClass):
+    2:  <%= simple_format post.body %>
+    3:   <h2>Comments</h2>
+    4:  <div id="comments">
+    5:          <%= render :partial => @post.comments %>
+    6:  </div>
+    7: 
+    8:  <%= form_for [@post, Comment.new] do |f| %>
+  app/views/posts/_post.html.erb:5:in `_app_views_posts__post_html_erb___3845282800818222174_70202463137780'
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb__1844821451707165172_70202505374020'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (25.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (2.0ms)
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:49:47 +0100
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:49:54 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (3.2ms)
+  Rendered posts/index.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `comments' for nil:NilClass):
+    3: 
+    4:   <h2>Comments</h2>
+    5:  <div id="comments">
+    6:          <%= render :partial => @post.comments %>
+    7:  </div>
+    8: 
+    9:  <%= form_for [@post, Comment.new] do |f| %>
+  app/views/posts/_post.html.erb:6:in `_app_views_posts__post_html_erb___3845282800818222174_70202506096900'
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb__1844821451707165172_70202505374020'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (9.5ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (26.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:50:26 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post.html.erb (13.1ms)
+  Rendered posts/index.html.erb within layouts/application (15.9ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `comments_path' for #<#<Class:0x007fb2933726f0>:0x007fb291b4dae8>):
+    1: <h2><%= link_to_unless_current post.title, post %></h2>
+    2:  <%= simple_format post.body %>
+    3: 
+    4:   <%= form_for [@post, Comment.new] do |f| %>
+    5:         <p>
+    6:                 <%= f.label :body, "New comment" %><br/>
+    7:                 <%= f.text_area :body %>
+  app/views/posts/_post.html.erb:4:in `_app_views_posts__post_html_erb___3845282800818222174_70202475229640'
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb__1844821451707165172_70202505374020'
+
+
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (10.6ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (7.3ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /Users/kehindeayanleye/.rvm/gems/ruby-2.1.3/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (35.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2015-01-25 03:50:35 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/_post.html.erb (2.5ms)
+  Rendered posts/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 63ms (Views: 62.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/comments-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/posts-c15e1c77cb5b3534b610348cb9f3c56d.css?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/jquery-dfb1e594c3e61a04cc388702c3feec1f.js?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/application-e937ec24bfceaebdd8730b6ce63cbe72.css?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/scaffolds-c3149f9685428f434d2263f472b02d30.css?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/jquery_ujs-d68671a1cc3ff7bd3f96ef9686111a5d.js?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/turbolinks-cd9b4796a00484e994307ba96e05ce6b.js?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/posts-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/comments-5cf9e471f6dbffd4600ae141132a5888.js?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/assets/application-a3dfe642897ebf9dcbc1c28474de4c1a.js?body=1" for 127.0.0.1 at 2015-01-25 03:50:36 +0100
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2015-01-25 03:50:37 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/_post.html.erb (0.9ms)
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  Rendered posts/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 0.2ms)
