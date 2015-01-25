@@ -57,3 +57,10 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+end
+
+gem 'activeadmin'
+gem "meta_search", '>= 1.1.0.pre'
+
